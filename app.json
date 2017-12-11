@@ -1,0 +1,6 @@
+{
+  "name": "ChannelX",
+  "description": "A Real Time Chat Application built using Node.js, Express, Mongoose, Socket.io, Passport, & Redis.",
+  "repository": "https://github.com/projectchannelx/ChannelX",
+  "keywords": ["real-time", "chat", "nodejs", "express", "mongoose", "socketio", "passport", "redis"]
+}
