@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html >
+  <head>
+    <meta charset="UTF-8">
+    <title>ChannelX</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel='stylesheet prefetch' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css'>
+  </head>
+  <body>
+    <div class="container clearfix" style="width: 600px;">
+      <div class="controls" style="border: none; width: 100%;">
+          <a href="/myprofile" class="myprofile-btn" style="width: auto; padding: 13px; font-size: 12px; float:left;">My Profile</a>
+          <a href="/logout" class="logout-btn" style="width: auto; padding: 13px; font-size: 12px;">Logout</a>
+      </div>
+
+      <div class="room" style="width: 100%;">
+        <div class="room-header clearfix">
+          <div class="room-about">
+            <div class="room-title">Channels</div>
+            <div class="room-num-rooms"><%= rooms.length %> Channel(s)</div>
+          </div>
+        </div>
+        
+        <div class="room-create clearfix" style="border-bottom: 2px solid white;">
+          <h3 style="width: 550px; text-align: center ">CREATE NEW CHANNEL</h3>
+          <input type="text" name="title" autofocus placeholder ="Type a new channel">
+          <input type="hidden" name="ownerID" value=<%= users._id %>>
+          <p style="width: 200px; float: left">Period Start Time</p>
+          <input type="time" name="startTime"  style="width: 350px; float: left">
+          <p style="width: 200px; float: left">Period End Time</p>
+          <input type="time" name="endTime"  style="width: 350px; float: left">
+          <p style="width: 200px; float: left; margin-bottom: 15px">Select Days</p>
+          <select name="days" multiple style="width: 350px; margin-bottom: 15px">
+            <option value="Monday">Monday</option>
+            <option value="Tuesday">Tuesday</option>
+            <option value="Wednesday">Wednesday</option>
+            <option value="Thursday">Thursday</option>
+            <option value="Friday">Friday</option>
+            <option value="Saturday">Saturday</option>
+            <option value="Sunday">Sunday</option>
+          </select>
+          <p style="width: 200px; float: left">Closing Date of Channel</p>
+          <input type="date" name="endDate" style="width: 350px; float: left;">
+
+          <p style="width: 200px; float: left">Is repeat?</p>
+          No<input type="range" name="isRepeat" min="0" max="1" style="width: 300px; float: justify; margin-bottom: 30px">Yes
+          <button style="width: 550px; float: center">Create</button>
+        </div>
+
+        
+        <div class="room-list">
+          <h3 style="width: 550px; text-align: center; font-weight: bold">ENTER VERIFICATION CODE TO ENTER THE CHANNEL</h3>
+          <div class="room-create clearfix">
+            <input type="text" name="title" id="verCode" style="width: 500px; margin-bottom: 22px" autofocus placeholder ="Verification Code:">
+            <button type="button" onclick="myFunction()" style="width: 500px">Verify</button>            
+          </div>
+          <ul>
+            <% if(rooms.length > 0) { %>
+              <% rooms.forEach(function(room) { %>
+                <% if(room.isActive == true) { %>
+                  <div id=<%= room.verificationCode %> style="display:none">
+                    <a href="/chat/<%= room.id %>"><li class="room-item"><%= room.title %></li></a>
+                  </div>
+                  <% } %>
+                <% }); %>
+            <% } else { %>
+              <p class="message" style="text-align: center; padding: 0; margin: 0;">Create your first room!</p>
+            <% } %>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+    <script>
+      function myFunction() {
+          document.getElementById(document.getElementById("verCode").value).style.display='block';
+      }
+    </script>
+    <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js'></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="/js/main.js"></script>
+    <script>$(function(){app.rooms()});</script>
+  </body>
+</html>

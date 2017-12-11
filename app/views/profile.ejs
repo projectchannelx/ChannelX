@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html >
+  <head>
+    <meta charset="UTF-8">
+    <title>ChannelX</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel='stylesheet prefetch' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css'>
+  </head>
+  <body>
+    <div class="container clearfix" style="width: 600px;">
+      <div class="controls" style="border: none; width: 100%;">
+          <a href="/rooms" class="rooms-btn" style="width: auto; padding: 13px; font-size: 12px; float:left;">Channels</a>
+          <a href="/logout" class="logout-btn" style="width: auto; padding: 13px; font-size: 12px;">Logout</a>
+      </div>
+
+      <div class="room" style="width: 100%;">
+        <div class="room-header clearfix">
+          <div class="room-about">
+            <img src="https://www.vccircle.com/wp-content/uploads/2017/03/default-profile.png" alt="avatar" style="display:block; width:30%; height:30%;">            
+            <p style="margin-left: 15px; margin-top: 20px;"><div class="username"><%= user.username %></div></p>
+            <p style="margin-left: 15px; margin-top: 20px;"><div class="username"><%= user.email %></div></p>
+          </div>
+          <i class="fa fa-th-list"></i>
+        </div>
+        
+        <div class="room-create clearfix" style="border-bottom: 2px solid white;">
+            <form action="/updateUser" class="update-form" method="post" >
+              <input type="text" name="username" autofocus placeholder ="New Username">
+              <input type="text" name="email" autofocus placeholder ="New E-Mail">
+              <button type="submit">Update</button>           
+            </form>
+        </div>  
+
+    </div> 
+    <div>
+
+
+    </div>
+    <div>
+
+
+    </div>
+    <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js'></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="/js/main.js"></script>
+    <script>$(function(){app.rooms()});</script>
+  </body>
+</html>
