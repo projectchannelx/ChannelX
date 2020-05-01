@@ -5,7 +5,9 @@
   "description": "A Real Time Chat Application built using Node.js, Express, Mongoose, Socket.io, Passport, & Redis.",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
+    "start": "node server.js",
+    "snyk-protect": "snyk protect",
+    "prepublish": "npm run snyk-protect"
   },
   "repository": {
     "url": "git+https://github.com/projectchannelx/ChannelX.git",
@@ -32,9 +34,11 @@
     "socket.io": "^2.0.3",
     "socket.io-redis": "^5.1.0",
     "winston": "^2.2.0",
-    "zombie": "2.0.0-alpha11"
+    "zombie": "2.0.0-alpha11",
+    "snyk": "^1.316.1"
   },
   "devDependencies": {
     "zombie": "^4.0.13"
-  }
+  },
+  "snyk": true
 }
