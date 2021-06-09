@@ -32,9 +32,9 @@
     "socket.io": "^2.0.3",
     "socket.io-redis": "^5.1.0",
     "winston": "^2.2.0",
-    "zombie": "2.0.0-alpha11"
+    "zombie": "6.1.4"
   },
   "devDependencies": {
-    "zombie": "^4.0.13"
+    "zombie": "^6.1.4"
   }
 }
