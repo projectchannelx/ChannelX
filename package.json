@@ -22,7 +22,7 @@
     "ejs": "^2.5.1",
     "express": "^4.14.0",
     "express-session": "^1.14.0",
-    "mongoose": "^4.7.5",
+    "mongoose": "^5.7.3",
     "nodemailer": "^4.4.1",
     "passport": "^0.3.2",
     "passport-facebook": "^2.1.1",
@@ -31,10 +31,10 @@
     "redis": "^2.6.2",
     "socket.io": "^2.0.3",
     "socket.io-redis": "^5.1.0",
-    "winston": "^2.2.0",
-    "zombie": "2.0.0-alpha11"
+    "winston": "^3.3.0",
+    "zombie": "2.0.2"
   },
   "devDependencies": {
-    "zombie": "^4.0.13"
+    "zombie": "^2.0.2"
   }
 }
